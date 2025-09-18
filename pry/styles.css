@@ -1,0 +1,223 @@
+:root {
+  --primary-color: #004d40;
+  --secondary-color: #26a69a;
+  --accent-color: #ffb74d;
+  --background-light: #e0f2f1;
+  --text-dark: #333;
+  --text-light: #fff;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.logo-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+}
+.logo-img{
+    height: 40px;
+    margin-top: 700;
+}
+.logo-text{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.logo {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+.nav-list li a {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+.nav-list li a:hover {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+.hero {
+  background: url("https://via.placeholder.com/1200x600?text=Oceano+con+micropl%C3%A1sticos")
+    no-repeat center center/cover;
+  color: var(--text-light);
+  text-align: center;
+  padding: 8rem 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.25rem;
+}
+.content-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+.gallery-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--background-light);
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 2rem 1rem;
+  text-align: left;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.footer-section {
+  flex: 1 1 200px;
+}
+.footer-section h4 {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.footer-section ul {
+  list-style: none;
+}
+.footer-section ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-icon img {
+  width: 30px;
+  height: 30px;
+
+  transition: transform 0.3s ease;
+}
+.social-icon img:hover {
+  transform: scale(1.2);
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+.hamburger,
+#menu-toggle {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .nav-list li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-list li:last-child {
+    border-bottom: none;
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-light);
+    transition: all 0.3s ease-in-out;
+  }
+  #menu-toggle:checked ~ .nav {
+    display: block;
+  }
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
